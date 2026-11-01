@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+@import '../../../packages/ui/src/theme.css';
+
+/* Sans cette ligne, Tailwind ne voit pas les classes des composants partagés. */
+@source '../../../packages/ui/src';

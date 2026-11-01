@@ -1,0 +1,36 @@
+/* Jetons de design de GovLocate, relevés dans la maquette v0.
+   Ils doivent rester identiques aux variables couleur/* du fichier Figma. */
+@theme {
+  --color-*: initial;
+  --color-vert: #0a6b47;
+  --color-vert-fonce: #075236;
+  --color-vert-clair: #e3f2ea;
+  --color-jaune: #f4b400;
+  --color-jaune-clair: #fff4d6;
+  --color-encre: #14181f;
+  --color-gris-texte: #4a5361;
+  --color-gris: #5b6472;
+  --color-bordure: #d6dbd9;
+  --color-fond: #f3f5f4;
+  --color-fond-carte: #e9eceb;
+  --color-rouge: #b42318;
+  --color-rouge-clair: #fdecea;
+  --color-blanc: #ffffff;
+
+  /* Roboto est déjà installée sur Android : aucune police n'est téléchargée. */
+  --font-sans: Roboto, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-carte: 14px;
+  --radius-champ: 12px;
+  --radius-badge: 8px;
+}
+
+@layer base {
+  body {
+    @apply bg-fond font-sans text-encre antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-jaune;
+  }
+}
