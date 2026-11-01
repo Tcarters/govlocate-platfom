@@ -15,7 +15,7 @@ Le fichier reproduit les 9 écrans en calques modifiables, avec le prototype cli
 | Dossier | Contenu |
 | :- | :- |
 | [architecture/](architecture/README.md) | Contexte, cas d'utilisation, modèle du domaine, états, conteneurs, séquences, modèle de données, déploiement |
-| [adr/](adr/) | Décisions d'architecture, dont l'[hébergement du MVP](adr/0001-hebergement-mvp.md) |
+| [adr/](adr/) | Décisions d'architecture : [hébergement du MVP](adr/0001-hebergement-mvp.md), [stack du frontend](adr/0002-stack-frontend.md) |
 | [design/](design/) | [Textes SMS et menu USSD](design/sms-ussd.md) |
 
-Voir aussi le document de référence du projet, [project-context.md](../project-context.md), qui couvre la stack technique, la méthode de travail et le plan.
+Voir aussi le document de référence du projet, [project-context.md](../project-context.md), qui couvre la stack technique, la méthode de travail et le plan, et [frontend-context.md](../frontend-context.md) pour le frontend de démonstration.
