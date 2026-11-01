@@ -1,0 +1,82 @@
+import type { Demarche } from '../../types';
+
+// Données fictives. Les coûts, délais et pièces restent à null ou génériques
+// tant qu'une personne d'une commune ne les a pas relus (frontend-context.md, « Fixtures »).
+export const demarches: Demarche[] = [
+  {
+    id: 'acte-naissance',
+    nom: 'Acte de naissance',
+    description: "Extrait d'acte de naissance, délivré par le centre d'état civil.",
+    icone: 'acte',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [
+      { libelle: "Pièce d'identité du demandeur", obligatoire: true },
+      { libelle: 'Date et lieu de naissance de la personne concernée', obligatoire: true },
+    ],
+    frequente: true,
+  },
+  {
+    id: 'carte-identite',
+    nom: "Carte d'identité",
+    description: "Demande ou renouvellement de la carte nationale d'identité.",
+    icone: 'identite',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [{ libelle: 'Acte de naissance', obligatoire: true }],
+    frequente: true,
+  },
+  {
+    id: 'passeport',
+    nom: 'Passeport',
+    description: 'Demande ou renouvellement du passeport.',
+    icone: 'passeport',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [
+      { libelle: 'Acte de naissance', obligatoire: true },
+      { libelle: "Carte d'identité", obligatoire: true },
+    ],
+    frequente: true,
+  },
+  {
+    id: 'electricite-ceet',
+    nom: 'Électricité CEET',
+    description: "Abonnement, réclamation ou facture auprès d'une agence CEET.",
+    icone: 'electricite',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [{ libelle: "Pièce d'identité", obligatoire: true }],
+    frequente: true,
+  },
+  {
+    id: 'eau-tde',
+    nom: 'Eau TdE',
+    description: "Abonnement, réclamation ou facture auprès d'une agence TdE.",
+    icone: 'eau',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [{ libelle: "Pièce d'identité", obligatoire: true }],
+    frequente: true,
+  },
+  {
+    id: 'acte-mariage',
+    nom: 'Acte de mariage',
+    description: "Extrait d'acte de mariage, délivré par le centre d'état civil.",
+    icone: 'mariage',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [{ libelle: "Pièce d'identité du demandeur", obligatoire: true }],
+    frequente: false,
+  },
+  {
+    id: 'acte-deces',
+    nom: 'Acte de décès',
+    description: "Extrait d'acte de décès, délivré par le centre d'état civil.",
+    icone: 'deces',
+    coutOfficielFcfa: null,
+    delaiHabituel: null,
+    pieces: [{ libelle: "Pièce d'identité du demandeur", obligatoire: true }],
+    frequente: false,
+  },
+];

@@ -1,0 +1,24 @@
+{
+  "demo": {
+    "bandeau": "Démonstration : données fictives"
+  },
+  "suffixe": "Pro",
+  "connexion": {
+    "titre": "Connexion",
+    "texte": "Démonstration : choisissez un compte. Au pilote, chaque agent aura un compte nominatif.",
+    "agent": "Agent du guichet 2",
+    "agentDetail": "Mairie d'Agoè-Nyivé 1 · Mawuli D.",
+    "responsable": "Responsable de la commune",
+    "responsableDetail": "Mairie d'Agoè-Nyivé 1 · tableau de bord"
+  },
+  "guichet": {
+    "titre": "Guichet",
+    "contexte": "Mairie d'Agoè-Nyivé 1 · <strong>Guichet 2</strong> · Agent : Mawuli D.",
+    "connecte": "Connecté"
+  },
+  "console": {
+    "titre": "Tableau de bord de la commune"
+  },
+  "deconnexion": "Changer de compte",
+  "enPreparation": "Cet écran arrive dans les prochains jours."
+}

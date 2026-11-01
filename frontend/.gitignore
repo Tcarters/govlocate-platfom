@@ -1,0 +1,8 @@
+node_modules
+dist
+dev-dist
+coverage
+.vercel
+*.local
+playwright-report
+test-results

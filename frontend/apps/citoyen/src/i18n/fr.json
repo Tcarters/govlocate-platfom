@@ -1,0 +1,43 @@
+{
+  "demo": {
+    "bandeau": "Démonstration : données fictives"
+  },
+  "navigation": {
+    "libelle": "Navigation principale",
+    "rechercher": "Rechercher",
+    "mesRendezVous": "Mes rendez-vous",
+    "monTicket": "Mon ticket"
+  },
+  "accueil": {
+    "titre": "Quelle démarche voulez-vous faire ?",
+    "recherche": {
+      "libelle": "Rechercher une démarche",
+      "exemple": "Ex. acte de naissance, passeport"
+    },
+    "commune": {
+      "pres": "Près de <strong>{{commune}}</strong>",
+      "changer": "Changer",
+      "choisir": "Choisir votre commune",
+      "valider": "Valider"
+    },
+    "frequentes": "Démarches fréquentes",
+    "toutes": "Toutes les démarches",
+    "resultats_one": "{{count}} démarche trouvée",
+    "resultats_other": "{{count}} démarches trouvées",
+    "aucunResultat": "Aucune démarche ne correspond. Essayez un autre mot, ou choisissez dans la liste.",
+    "sms": "Pas d'internet ? Envoyez <strong>RDV</strong> par SMS au <strong>{{numero}}</strong>. C'est gratuit."
+  },
+  "chargement": "Chargement…",
+  "erreur": "Les informations n'ont pas pu être chargées. Vérifiez votre connexion, puis réessayez.",
+  "reessayer": "Réessayer",
+  "retour": "Retour",
+  "enPreparation": {
+    "titre": "Écran en préparation",
+    "texte": "Cet écran arrive dans les prochains jours.",
+    "accueil": "Revenir à l'accueil"
+  },
+  "introuvable": {
+    "titre": "Page introuvable",
+    "texte": "Cette adresse ne correspond à aucune page."
+  }
+}
