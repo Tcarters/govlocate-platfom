@@ -27,25 +27,32 @@ export function PageAccueil() {
 
   return (
     <>
-      <header className="flex flex-col gap-4 bg-vert px-5 pt-4 pb-6 text-blanc">
-        <Logo />
-        <h1 className="text-[26px] leading-8 font-bold">{t('accueil.titre')}</h1>
-        <label className="flex h-13 items-center gap-2.5 rounded-champ bg-blanc px-3.5 text-gris-texte focus-within:outline-3 focus-within:outline-jaune">
-          <Search size={22} aria-hidden />
-          <span className="sr-only">{t('accueil.recherche.libelle')}</span>
-          <input
-            type="search"
-            value={recherche}
-            onChange={(e) => setRecherche(e.target.value)}
-            placeholder={t('accueil.recherche.exemple')}
-            className="min-w-0 flex-1 bg-transparent text-[17px] text-encre outline-none placeholder:text-gris-texte"
-          />
-        </label>
+      <header className="bg-vert text-blanc">
+        <div className="largeur-page flex flex-col gap-4 px-5 pt-4 pb-6 lg:gap-5 lg:pt-8 lg:pb-10">
+          {/* À partir de 1024 px, le logo est dans la barre du haut. */}
+          <div className="lg:hidden">
+            <Logo />
+          </div>
+          <h1 className="text-[26px] leading-8 font-bold lg:text-4xl lg:leading-tight">
+            {t('accueil.titre')}
+          </h1>
+          <label className="flex h-13 items-center gap-2.5 rounded-champ bg-blanc px-3.5 text-gris-texte focus-within:outline-3 focus-within:outline-jaune lg:max-w-2xl">
+            <Search size={22} aria-hidden />
+            <span className="sr-only">{t('accueil.recherche.libelle')}</span>
+            <input
+              type="search"
+              value={recherche}
+              onChange={(e) => setRecherche(e.target.value)}
+              placeholder={t('accueil.recherche.exemple')}
+              className="min-w-0 flex-1 bg-transparent text-[17px] text-encre outline-none placeholder:text-gris-texte"
+            />
+          </label>
+        </div>
       </header>
 
       <BarreCommune />
 
-      <main className="flex flex-1 flex-col gap-4 px-5 pt-4 pb-6">
+      <main className="largeur-page flex flex-1 flex-col gap-4 px-5 pt-4 pb-6 lg:pt-8">
         {demarches.isPending || demarches.isError ? (
           <EtatRequete erreur={demarches.isError} reessayer={() => void demarches.refetch()} />
         ) : motCle ? (
@@ -53,7 +60,7 @@ export function PageAccueil() {
         ) : (
           <>
             <h2 className="mt-1 text-lg font-bold">{t('accueil.frequentes')}</h2>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-2 gap-2.5 md:grid-cols-3 lg:grid-cols-4">
               {demarches.data
                 .filter((d) => toutesVisibles || d.frequente)
                 .map((d) => (
@@ -95,7 +102,7 @@ function ListeRecherche({ demarches }: { demarches: Demarche[] }) {
       <p role="status" className="text-sm text-gris-texte">
         {t('accueil.resultats', { count: demarches.length })}
       </p>
-      <ul className="flex flex-col gap-2">
+      <ul className="grid gap-2 lg:grid-cols-2">
         {demarches.map((d) => (
           <li key={d.id}>
             <Link
@@ -126,45 +133,47 @@ function BarreCommune() {
   const nom = communes.data?.find((c) => c.id === communeId)?.nom ?? '…';
 
   return (
-    <div className="border-b border-bordure bg-blanc px-5">
-      <div className="flex h-13 items-center justify-between">
-        <span className="flex items-center gap-2">
-          <MapPin size={20} className="text-vert" aria-hidden />
-          <span>
-            <Trans i18nKey="accueil.commune.pres" values={{ commune: nom }} components={{ strong: <strong /> }} />
+    <div className="border-b border-bordure bg-blanc">
+      <div className="largeur-page px-5">
+        <div className="flex h-13 items-center justify-between lg:justify-start lg:gap-4">
+          <span className="flex items-center gap-2">
+            <MapPin size={20} className="text-vert" aria-hidden />
+            <span>
+              <Trans i18nKey="accueil.commune.pres" values={{ commune: nom }} components={{ strong: <strong /> }} />
+            </span>
           </span>
-        </span>
-        <button
-          type="button"
-          aria-expanded={ouvert}
-          aria-controls={idListe}
-          onClick={() => setOuvert((o) => !o)}
-          className="h-11 px-1 font-medium text-vert underline"
-        >
-          {t('accueil.commune.changer')}
-        </button>
-      </div>
-      {ouvert && communes.data && (
-        <div id={idListe} className="pb-3">
-          <label className="flex flex-col gap-1.5 text-sm font-medium">
-            {t('accueil.commune.choisir')}
-            <select
-              value={communeId}
-              onChange={(e) => {
-                choisirCommune(e.target.value);
-                setOuvert(false);
-              }}
-              className="h-12 rounded-champ border border-bordure bg-blanc px-3 text-base text-encre"
-            >
-              {communes.data.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.nom}
-                </option>
-              ))}
-            </select>
-          </label>
+          <button
+            type="button"
+            aria-expanded={ouvert}
+            aria-controls={idListe}
+            onClick={() => setOuvert((o) => !o)}
+            className="h-11 px-1 font-medium text-vert underline"
+          >
+            {t('accueil.commune.changer')}
+          </button>
         </div>
-      )}
+        {ouvert && communes.data && (
+          <div id={idListe} className="pb-3">
+            <label className="flex flex-col gap-1.5 text-sm font-medium lg:max-w-sm">
+              {t('accueil.commune.choisir')}
+              <select
+                value={communeId}
+                onChange={(e) => {
+                  choisirCommune(e.target.value);
+                  setOuvert(false);
+                }}
+                className="h-12 rounded-champ border border-bordure bg-blanc px-3 text-base text-encre"
+              >
+                {communes.data.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.nom}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

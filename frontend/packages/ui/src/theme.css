@@ -25,6 +25,11 @@
   --radius-badge: 8px;
 }
 
+/* Largeur du contenu de l'application citoyen. Les bandeaux de couleur, eux, restent pleine largeur. */
+@utility largeur-page {
+  @apply mx-auto w-full max-w-6xl;
+}
+
 @layer base {
   body {
     @apply bg-fond font-sans text-encre antialiased;
