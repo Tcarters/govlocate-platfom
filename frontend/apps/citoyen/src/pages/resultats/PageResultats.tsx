@@ -14,7 +14,7 @@ export function PageResultats() {
   return (
     <>
       <EnTeteEcran titre={demarche.data?.nom ?? '…'} retour={<BoutonRetour vers="/" />} />
-      <main className="flex flex-1 flex-col gap-3 px-4 py-4">
+      <main className="largeur-page flex flex-1 flex-col gap-3 px-4 py-4 lg:px-5">
         {demarche.isPending || demarche.isError ? (
           <EtatRequete erreur={demarche.isError} reessayer={() => void demarche.refetch()} />
         ) : (
